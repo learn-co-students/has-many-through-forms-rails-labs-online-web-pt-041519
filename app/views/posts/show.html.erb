@@ -29,6 +29,6 @@
             <%= user_fields.text_field :username %>
         <% end %><br><br>
         
-        <%= f.hidden_field :post_id %>
+        <%= f.hidden_field :post_id, value: @post.id %>
         <%= f.submit %>
     <% end %></p>
