@@ -1,1 +1,9 @@
+<%# Should show the users info  %>
+<h1>Now viewing <%=@user.username%></h1>
 
+<%# Should link to all of the posts a user has commented on  %>
+<%=@user.comments.each do |comment|%>
+   <li>
+   <%= link_to comment.post.title, post_path(comment.post)%>
+   </li>
+<%end%>
