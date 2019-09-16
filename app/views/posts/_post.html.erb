@@ -1,0 +1,44 @@
+<div class=post-content>
+  <h2><%= post.title %></h2>
+  <p><%= post.content %></p>
+  
+  <% if !post.categories.empty? %>
+    <h4>Posted in: <%= post.categories.map(&:name).join(', ') %>
+  <% end %>
+
+  <% if !post.comments.empty? %>
+    <h4>Comments:</h4>
+    <ul>
+      <% post.comments.each do |comment| %>
+        <li><%= comment.user.username %> says: <%= comment.content %></li>
+      <% end %>
+    </ul>
+
+    <h4>Unique users who have commented:</h4>
+    <ul> 
+      <% post.users.distinct.each do |user| %></h4>
+        <li><%= link_to user.username, user_path(user) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for post.comments.build do |f| %>
+    <%= f.hidden_field :post_id %>
+
+    <h3>Add Comment</h3>
+    <%= f.label "User" %>
+    <%= f.collection_select :user_id, User.all, :id, :username %><br>
+
+
+    <%= f.fields_for :user, User.new do |user_fields| %>
+      <%= user_fields.label 'New Username' %>
+      <%= user_fields.text_field :username %>
+    <% end %><br><br>
+
+    <%= f.label "Comment" %>
+    <%= f.text_area :content %>
+    <br><br>
+
+    <%= f.submit %>
+  <% end %>
+</div>
