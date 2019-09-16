@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.create
   end
 
   def index
@@ -10,7 +9,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.users.build
   end
 
   def create
