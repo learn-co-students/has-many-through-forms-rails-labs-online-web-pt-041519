@@ -1,3 +1,24 @@
+# My notes
+1.Posts have category / Category have many posts
+2.post nested form with smart non dup category
+3.Create a categories show page that links to all of the posts asscoiated with a given ca
+4.A comment belong_to a users
+5.Posts have many comments
+6. on post show page i need a comment form with a drop down for users and a text box
+7.Create a users show page that links to all of the posts a user has commented on.
+
+posts_spec
+categories_spec
+comments_spec
+user_spec
+
+post model
+category model
+
+post controller
+posts/new
+
+
 # Has Many Through Forms Rails Labs
 
 ## Overview
