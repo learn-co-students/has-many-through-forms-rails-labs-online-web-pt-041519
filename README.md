@@ -18,6 +18,13 @@ category model
 post controller
 posts/new
 
+<% Category.all.each do |c| %>
+  <p>
+    <label for="category_id_<%c.id %>"><%= c.name %></label>
+    <input type="checkbox" name="post[category_ids][]" value="<%= c.id %>" id="category_id_<%c.id %>">
+  </p>
+<% end %>
+
 
 # Has Many Through Forms Rails Labs
 
