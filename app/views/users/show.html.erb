@@ -1,1 +1,5 @@
-
+<h2>Hello, <%= @user.username %>!</h2>
+<b>My Comments</b><br>
+<% @user.comments.each do |c| %>
+  <%= link_to c.post.title, post_path(c.post) %><br>
+<% end %>
