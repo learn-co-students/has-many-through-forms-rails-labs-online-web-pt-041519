@@ -1,1 +1,16 @@
+<%= render "post", post: @post %>
+<%= render "comment_form", comment: @post.comments.build, post_id: @post.id %>
+<% @post.saved_comments.each do |comment| %>
+    <%= render "comment", comment: comment %>
+<%end%>
+
+<% @post.comments.each do |c| %>
+    <% c.user do |user| %>
+    <li>
+        <%= link_to user.username, user_path(user) %>
+    </li>
+    <% end %>
+<% end %>
+
+
 
